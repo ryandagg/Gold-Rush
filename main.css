@@ -3,10 +3,6 @@
 	height: 40px;
 }
 
-.x-image:hover {
-	z-index: 99999;
-}
-
 .main-wrapper {
 	position: relative; /* for later use, keeps x's sticky */
 }
@@ -18,10 +14,10 @@
 
 .tooltip:hover:after{
     background: #333;
-    background: rgba(0,0,0,.8);
+    background: rgba(256,256,256,.6);
     border-radius: 5px;
-    bottom: 26px;
-    color: #fff;
+    bottom: 45px;
+    color: #000;
     content: attr(title);
     left: 20%;
     padding: 5px 15px;
