@@ -26,7 +26,7 @@ $(document).on('ready', function() {
 	// Enter a marker
 	$(document).on('click', function(e) {
 
-		if(!submitOpen){
+		if(!submitOpen){	// If there is no submit form on the screen...
 			clickCounter++;
 			// Pulling x & y courdinates from document and saving to a variable.
 		  	var clickPosition = [e.pageX, e.pageY]
@@ -39,7 +39,7 @@ $(document).on('ready', function() {
 		  		"left": clickPosition[0] - 22
 	  		});
 
-		  	//What are we doing here?
+		  	// Add input form and submit button for note
 		  	$('.main-wrapper').append("<div class='note-input" + clickCounter + "'><input type='textarea' value='Enter your note here...'><button>Submit</button></div>")
 		  	$(".note-input" + clickCounter).css({
 		  		"position": "absolute",
@@ -47,15 +47,14 @@ $(document).on('ready', function() {
 		  		"left": clickPosition[0] - 22
 	  		});
 
+	  		submitOpen = true;	// There is now a submit form open
+
+		  	// Save input to tooltop and close form and button
 		  	$(document).on('click', 'button', function(e) {
 		  		$('.marker'+ clickCounter).attr('title', $('input').val());
 		  		$('.note-input' + clickCounter).remove();
-		  		submitOpen = false
-		  	});
-
-		  	console.log('after button remove')
-
-	  		submitOpen = true;
+		  		submitOpen = false	// Just closed submit form
+			});
 		}
  	})
 
