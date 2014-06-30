@@ -13,15 +13,17 @@
 }
 
 .tooltip:hover:after{
-    background: #333;
-    background: rgba(256,256,256,.6);
+    background: rgba(256,245,230,.7);
     border-radius: 5px;
-    bottom: 45px;
-    color: #000;
+    bottom: 65px;
+    left: -15px;
+    font-family: "Comic Sans MS";
+    color: #451505;
     content: attr(title);
-    left: 20%;
     padding: 5px 15px;
     position: absolute;
     z-index: 98;
     width: 220px;
+    box-shadow: 3px 3px 6px #555;
 }
+
