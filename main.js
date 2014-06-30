@@ -46,6 +46,15 @@ $(document).on('ready', function() {
 		  		"top": clickPosition[1] + 25,
 		  		"left": clickPosition[0] - 22
 	  		});
+
+		  	$(document).on('click', 'button', function(e) {
+		  		$('.marker'+ clickCounter).attr('title', $('input').val());
+		  		$('.note-input' + clickCounter).remove();
+		  		submitOpen = false
+		  	});
+
+		  	console.log('after button remove')
+
 	  		submitOpen = true;
 		}
  	})
