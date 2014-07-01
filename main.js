@@ -22,6 +22,14 @@ $(document).on('ready', function() {
 		e.stopPropagation();
 	});
 
+	// Hide tooltip if no text  entered
+	$(document).on('mouseover', '.tooltip', function(e) {
+		if($(this).attr('name') === ''){$(this).addClass('hide')}
+	})
+
+	$(document).on('mouseout', '.tooltip', function(e) {
+		if($(this).attr('name') !== ''){$(this).removeClass('hide')}
+	})
 
 	// Enter a marker
 	$(document).on('click', function(e) {
@@ -32,7 +40,7 @@ $(document).on('ready', function() {
 		  	var clickPosition = [e.pageX, e.pageY]
 
 		  	// inserting an X (div with image) at the position clicked
-		  	$(".main-wrapper").append("<div title='fake user text' class='x-image tooltip marker" + clickCounter + "'><img src='http://malialitman.files.wordpress.com/2014/04/red-x.png'></div>");
+		  	$(".main-wrapper").append("<div name='' class='x-image tooltip marker" + clickCounter + "'><img src='http://malialitman.files.wordpress.com/2014/04/red-x.png'></div>");
 		  	$(".marker" + clickCounter).css({
 		  		"position": "absolute",
 		  		"top": clickPosition[1] - 20,
@@ -40,7 +48,7 @@ $(document).on('ready', function() {
 	  		});
 
 		  	// Add input form and submit button for note
-		  	$('.main-wrapper').append("<div class='note-input" + clickCounter + "'><input type='textarea' value='Enter your note here...'><button>Submit</button></div>")
+		  	$('.main-wrapper').append("<div class='note-input" + clickCounter + "'><input type='textarea' placeholder='Enter your note here...'><button>Submit</button></div>")
 		  	$(".note-input" + clickCounter).css({
 		  		"position": "absolute",
 		  		"top": clickPosition[1] + 25,
@@ -51,7 +59,7 @@ $(document).on('ready', function() {
 
 		  	// Save input to tooltop and close form and button
 		  	$(document).on('click', 'button', function(e) {
-		  		$('.marker'+ clickCounter).attr('title', $('input').val());
+		  		$('.marker'+ clickCounter).attr('name', $('input').val());
 		  		$('.note-input' + clickCounter).remove();
 		  		submitOpen = false	// Just closed submit form
 			});

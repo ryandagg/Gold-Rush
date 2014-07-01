@@ -19,7 +19,7 @@
     left: -15px;
     font-family: "Comic Sans MS";
     color: #451505;
-    content: attr(title);
+    content: attr(name);
     padding: 5px 15px;
     position: absolute;
     z-index: 98;
@@ -27,3 +27,7 @@
     box-shadow: 3px 3px 6px #555;
 }
 
+
+.tooltip.hide:hover:after{
+    display: none;
+}
