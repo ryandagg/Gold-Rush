@@ -22,11 +22,12 @@ $(document).on('ready', function() {
 		e.stopPropagation();
 	});
 
-	// Hide tooltip if no text  entered
+	// Hide tooltip on mouse over if no text  entered
 	$(document).on('mouseover', '.tooltip', function(e) {
 		if($(this).attr('name') === ''){$(this).addClass('hide')}
 	})
 
+	// Show tooltip on mouse out if it contains text
 	$(document).on('mouseout', '.tooltip', function(e) {
 		if($(this).attr('name') !== ''){$(this).removeClass('hide')}
 	})
@@ -66,7 +67,55 @@ $(document).on('ready', function() {
 		}
  	})
 
+	// Change offset
+	// $(document).on('click', 'img', function(e) {
+	// 	$("img").offset({top: 50, left:50})
+	// })
 
+
+	// Vertical scroll
+
+	// Messed with reference
+	var clicked = false, clickY;
+	$(document).on({
+	    'mousemove': function(e) {
+	        clicked && updateOffset(e);
+	    },
+	    'mousedown': function(e) {
+	        clicked = true;
+	        clickY = e.pageY;
+	    },
+	    'mouseup': function() {
+	        clicked = false;
+	        $('html').css('cursor', 'auto');
+	    }
+	});
+
+	var updateOffset = function(e) {
+	    $('html').css('cursor', 'move');
+	    $('.main-wrapper').scrollTop($('.main-wrapper').scrollTop() + (clickY - e.pageY));
+	}
+
+	// Reference
+	// var clicked = false, clickY;
+	// $(document).on({
+	//     'mousemove': function(e) {
+	//         clicked && updateScrollPos(e);
+	//     },
+	//     'mousedown': function(e) {
+	//         clicked = true;
+	//         clickY = e.pageY;
+	//     },
+	//     'mouseup': function() {
+	//         clicked = false;
+	//         $('html').css('cursor', 'auto');
+	//     }
+	// });
+
+	// var updateScrollPos = function(e) {
+	//     $('html').css('cursor', 'row-resize');
+	//     $(window).scrollTop($(window).scrollTop() + (clickY - e.pageY));
+	// }
 
 
 
