@@ -8,6 +8,9 @@ $(document).on('ready', function() {
 	var clickCounter = 0;
 	var submitOpen = false;
 
+	// set map image height to window height
+	$(".main-wrapper").height($(window).height())
+
 	// remove the appended divs
 	$(document).on('click', '.x-image', function(e) {
 		e.stopPropagation();
@@ -24,7 +27,12 @@ $(document).on('ready', function() {
 
 	// Hide tooltip on mouse over if no text  entered
 	$(document).on('mouseover', '.tooltip', function(e) {
-		if($(this).attr('name') === ''){$(this).addClass('hide')}
+		if($(this).attr('name') === ''){
+			$(this).addClass('hide')
+		}
+		else {
+			$(this).removeClass('hide');
+		}
 	})
 
 	// Show tooltip on mouse out if it contains text
@@ -33,7 +41,7 @@ $(document).on('ready', function() {
 	})
 
 	// Enter a marker
-	$(document).on('click', function(e) {
+	$(document).on('dblclick', function(e) {
 
 		if(!submitOpen){	// If there is no submit form on the screen...
 			clickCounter++;
@@ -44,16 +52,16 @@ $(document).on('ready', function() {
 		  	$(".main-wrapper").append("<div name='' class='x-image tooltip marker" + clickCounter + "'><img src='http://malialitman.files.wordpress.com/2014/04/red-x.png'></div>");
 		  	$(".marker" + clickCounter).css({
 		  		"position": "absolute",
-		  		"top": clickPosition[1] - 20,
-		  		"left": clickPosition[0] - 22
+		  		"top": $('.main-wrapper').scrollTop() + clickPosition[1] - 20,
+		  		"left": $('.main-wrapper').scrollLeft() + clickPosition[0] - 22
 	  		});
 
 		  	// Add input form and submit button for note
 		  	$('.main-wrapper').append("<div class='note-input" + clickCounter + "'><input type='textarea' placeholder='Enter your note here...'><button>Submit</button></div>")
 		  	$(".note-input" + clickCounter).css({
 		  		"position": "absolute",
-		  		"top": clickPosition[1] + 25,
-		  		"left": clickPosition[0] - 22
+		  		"top": $('.main-wrapper').scrollTop() + clickPosition[1] + 25,
+		  		"left": $('.main-wrapper').scrollLeft() + clickPosition[0] - 22
 	  		});
 
 	  		submitOpen = true;	// There is now a submit form open

@@ -4,12 +4,16 @@ body{
 
 img{
     pointer-events:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
 }
 
 .main-wrapper{
-    width: 500px;
-    height: 300px;
-    margin: auto;
+    /*width: 500px;*/
+    /*height: 100%;*/
+    /*margin: auto;*/
     overflow: hidden;
 }
 
@@ -17,6 +21,7 @@ img{
 .x-image img {
 	width: 40px;
 	height: 40px;
+    /*z-index: 1000;*/
 }
 
 .main-wrapper {
