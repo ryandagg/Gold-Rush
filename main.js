@@ -76,15 +76,19 @@ $(document).on('ready', function() {
 	// Vertical scroll
 
 	// Messed with reference
-	var clicked = false, clickY;
+	var clicked = false;
+	var clickY;
+	var clickX;
 	$(document).on({
-	    'mousemove': function(e) {
-	        clicked && updateOffset(e);
-	    },
 	    'mousedown': function(e) {
 	        clicked = true;
-	        clickY = e.pageY;
 	    },
+	    'mousemove': function(e) {
+	        clicked && updateOffset(e);
+	        clickY = e.pageY;
+	        clickX = e.pageX;
+	    },
+	    
 	    'mouseup': function() {
 	        clicked = false;
 	        $('html').css('cursor', 'auto');
@@ -94,6 +98,7 @@ $(document).on('ready', function() {
 	var updateOffset = function(e) {
 	    $('html').css('cursor', 'move');
 	    $('.main-wrapper').scrollTop($('.main-wrapper').scrollTop() + (clickY - e.pageY));
+	    $('.main-wrapper').scrollLeft($('.main-wrapper').scrollLeft() + (clickX - e.pageX));
 	}
 
 	// Reference

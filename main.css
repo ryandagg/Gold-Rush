@@ -3,7 +3,7 @@ body{
 }
 
 img{
-    
+    pointer-events:none;
 }
 
 .main-wrapper{
