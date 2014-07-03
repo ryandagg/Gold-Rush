@@ -1,6 +1,27 @@
+body{
+    background: #ccc;
+}
+
+img{
+    pointer-events:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+.main-wrapper{
+    /*width: 500px;*/
+    /*height: 100%;*/
+    /*margin: auto;*/
+    overflow: hidden;
+}
+
+
 .x-image img {
 	width: 40px;
 	height: 40px;
+    /*z-index: 1000;*/
 }
 
 .main-wrapper {
@@ -19,7 +40,7 @@
     left: -15px;
     font-family: "Comic Sans MS";
     color: #451505;
-    content: attr(title);
+    content: attr(name);
     padding: 5px 15px;
     position: absolute;
     z-index: 98;
@@ -27,3 +48,7 @@
     box-shadow: 3px 3px 6px #555;
 }
 
+
+.tooltip.hide:hover:after{
+    display: none;
+}
