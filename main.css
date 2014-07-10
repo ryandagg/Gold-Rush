@@ -52,3 +52,15 @@ img{
 .tooltip.hide:hover:after{
     display: none;
 }
+
+.instructions{
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    position: fixed;
+    top: 10px;
+    left: 40px;
+    width: 15em;
+    height: 10em;
+    text-align: center;
+    text-shadow: 3px 3px 8px #000;
+}
