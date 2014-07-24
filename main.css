@@ -53,6 +53,24 @@ img{
     display: none;
 }
 
+input{
+    background: rgb(256,245,230);
+    border-radius: 2px;
+    color: #451505;
+    border: none;
+}
+
+button{
+    background: rgb(256,245,230);
+    border-radius: 5px;
+    font-family: "Comic Sans MS";
+    color: #451505;
+    border: none;
+    margin-top: 5px;
+    margin-left: 5px;
+    box-shadow: 2px 2px 6px #555;
+}
+
 .instructions{
     background: rgba(0, 0, 0, 0);
     color: white;
